@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from datetime import datetime
 import django.forms
 import re
 
@@ -78,10 +78,11 @@ class Entity(models.Model):
     #reports_to = models.ForeignKey('self', blank = True) only takes one self field
     start_date = models.DateField(blank = True)
 
-
-
-
-
 # Tagging is intended at least initially to locate areas of expertise
 # tagging.register(Entity)
+
+class TextStatus(models.Model):
+    datetime = models.DateTimeField(default=datetime.now)
+    entity = models.ForeignKey(Entity)
+    text = models.TextField()     
 
