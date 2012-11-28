@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from photoDir.functions import ajax_login_required
 
-import directory.models 
+import photoDir.models 
 import json
 import re
 
@@ -64,8 +64,8 @@ def ajax_login_request(request):
         login(request, user)
         result = True
     else:
-        result = False
-    response = HttpResponse(json.dumps(result), mimetype = u'application/json')
+        result = False   
+        response = HttpResponse(json.dumps(result), mimetype = u'application/json')
     return response
 
 @ajax_login_required
